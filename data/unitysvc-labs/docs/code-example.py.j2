@@ -1,4 +1,5 @@
 import boto3
+import os
 {% if local_testing %}
 from botocore import UNSIGNED
 from botocore.config import Config
@@ -10,15 +11,18 @@ s3 = boto3.client('s3',
 )
 bucket = '{{ offering.upstream_access_config["AWS Public S3"].bucket }}'
 {% else %}
-import os
-
 # Access via UnitySVC S3 gateway
+# SERVICE_BASE_URL is e.g. http://localhost:9180/open-weather
+# boto3 needs endpoint_url=http://localhost:9180 and Bucket='open-weather'
+service_url = os.environ['SERVICE_BASE_URL']
+endpoint_url = service_url.rsplit('/', 1)[0]  # strip bucket path
+bucket = service_url.rsplit('/', 1)[1]        # extract bucket name
+
 s3 = boto3.client('s3',
-    endpoint_url=os.environ['SERVICE_BASE_URL'],
+    endpoint_url=endpoint_url,
     aws_access_key_id=os.environ['UNITYSVC_API_KEY'],
     aws_secret_access_key='not-used',
 )
-bucket = '{{ offering.name }}'
 {% endif %}
 
 # List files in the bucket

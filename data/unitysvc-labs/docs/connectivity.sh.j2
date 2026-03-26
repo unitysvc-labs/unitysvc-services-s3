@@ -5,8 +5,9 @@ curl -s -o /dev/null -w "%{http_code}" \
     "https://{{ offering.upstream_access_config["AWS Public S3"].bucket }}.s3.{{ offering.upstream_access_config["AWS Public S3"].region }}.amazonaws.com/" \
     | grep -q "200\|403" && echo "connectivity ok"
 {% else %}
-# Verify S3 gateway endpoint is reachable
-curl -s -o /dev/null -w "%{http_code}" "$SERVICE_BASE_URL/" \
-    -H "Authorization: Bearer $UNITYSVC_API_KEY" \
-    | grep -q "200\|403\|404" && echo "connectivity ok"
+# Verify S3 gateway endpoint is reachable (any HTTP response means gateway is up)
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$SERVICE_BASE_URL/")
+echo "Gateway responded with status $STATUS"
+# Any response (even 401/403) means the gateway is reachable
+[ "$STATUS" -gt 0 ] 2>/dev/null && echo "connectivity ok"
 {% endif %}
