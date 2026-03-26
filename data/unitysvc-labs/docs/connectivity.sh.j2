@@ -1,0 +1,4 @@
+#!/bin/bash
+# Connectivity test for the S3 gateway endpoint
+curl -s -o /dev/null -w "%{http_code}" "$SERVICE_BASE_URL/" \
+  -H "Authorization: Bearer $UNITYSVC_API_KEY" | grep -q "200\|403\|404" && echo "connectivity ok"

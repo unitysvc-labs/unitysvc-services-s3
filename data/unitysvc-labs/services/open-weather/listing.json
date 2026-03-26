@@ -53,6 +53,17 @@
       "is_active": true,
       "is_public": true,
       "mime_type": "url"
+    },
+    "Connectivity test": {
+      "category": "connectivity_test",
+      "description": "Connectivity test for the S3 gateway endpoint",
+      "file_path": "../../docs/connectivity.sh.j2",
+      "is_active": true,
+      "is_public": false,
+      "meta": {
+        "skip_test": true
+      },
+      "mime_type": "bash"
     }
   }
 }
