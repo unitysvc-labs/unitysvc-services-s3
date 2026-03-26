@@ -6,7 +6,7 @@
   "currency": "USD",
   "list_price": {
     "type": "constant",
-    "amount": "0",
+    "price": "0",
     "description": "Free — public dataset"
   },
   "user_access_interfaces": {
