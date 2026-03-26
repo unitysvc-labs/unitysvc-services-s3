@@ -4,20 +4,21 @@
   "service_type": "content",
   "status": "ready",
   "time_created": "2026-03-26T00:00:00Z",
-  "description": "Common Crawl web archive — petabytes of raw web page data, extracted text, and metadata collected since 2008. Used for NLP training, web research, and data analysis. Each monthly crawl contains billions of web pages.",
+  "description": "Common Crawl web archive \u2014 petabytes of raw web page data, extracted text, and metadata collected since 2008. Used for NLP training, web research, and data analysis. Each monthly crawl contains billions of web pages.",
   "tags": [
     "data",
     "web",
     "nlp",
     "ml",
-    "open-data"
+    "open-data",
+    "free"
   ],
   "capabilities": [
     "s3_browse",
     "s3_download"
   ],
   "payout_price": {
-    "description": "Free public dataset — no payout",
+    "description": "Free public dataset \u2014 no payout",
     "percentage": "0",
     "type": "revenue_share"
   },

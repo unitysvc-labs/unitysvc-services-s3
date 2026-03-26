@@ -11,14 +11,15 @@
     "imagery",
     "geospatial",
     "ml",
-    "open-data"
+    "open-data",
+    "free"
   ],
   "capabilities": [
     "s3_browse",
     "s3_download"
   ],
   "payout_price": {
-    "description": "Free public dataset — no payout",
+    "description": "Free public dataset \u2014 no payout",
     "percentage": "0",
     "type": "revenue_share"
   },
