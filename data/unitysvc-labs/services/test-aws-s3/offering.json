@@ -25,7 +25,7 @@
       "access_method": "http",
       "storage_type": "s3",
       "bucket": "unitysvc-assets",
-      "region": "us-east-1",
+      "region": "us-west-2",
       "base_path": "s3-gateway-test/",
       "access_key": "${ secrets.AWS_ACCESS_KEY }",
       "secret_key": "${ secrets.AWS_SECRET_KEY }"
