@@ -6,8 +6,8 @@
   "currency": "USD",
   "list_price": {
     "type": "constant",
-    "price": "0",
-    "description": "Free — public domain content"
+    "price": "0.01",
+    "description": "1c per file"
   },
   "user_access_interfaces": {
     "S3 Gateway": {
