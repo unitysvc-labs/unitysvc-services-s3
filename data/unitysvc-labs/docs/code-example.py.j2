@@ -3,9 +3,10 @@ import os
 {% if local_testing %}
 {% if interface.get("access_key") %}
 # Local testing: access S3 with seller credentials
+# Environment variables are set by usvc data run-tests from upstream_access_config
 s3 = boto3.client('s3',
-    endpoint_url=os.environ.get('S3_ENDPOINT', '{{ interface.s3_endpoint }}'),
-    region_name='{{ interface.region }}',
+    endpoint_url=os.environ['S3_ENDPOINT'],
+    region_name=os.environ['REGION'],
     aws_access_key_id=os.environ['ACCESS_KEY'],
     aws_secret_access_key=os.environ['SECRET_KEY'],
 )
@@ -15,12 +16,12 @@ from botocore.config import Config
 
 # Local testing: access public S3 bucket directly (no authentication needed)
 s3 = boto3.client('s3',
-    region_name='{{ interface.region }}',
+    region_name=os.environ['REGION'],
     config=Config(signature_version=UNSIGNED),
 )
 {% endif %}
-bucket = '{{ interface.bucket }}'
-prefix = '{{ interface.get("base_path", "") }}'
+bucket = os.environ['BUCKET']
+prefix = os.environ.get('BASE_PATH', '')
 {% else %}
 # Access via UnitySVC S3 gateway
 service_url = os.environ['SERVICE_BASE_URL']
