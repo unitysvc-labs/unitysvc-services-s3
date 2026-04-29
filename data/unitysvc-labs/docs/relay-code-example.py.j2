@@ -5,7 +5,7 @@ from botocore.exceptions import ClientError
 {% if local_testing %}
 # Local testing: connect directly to upstream S3 endpoint
 # S3_ENDPOINT is set for multi-enrollment; SERVICE_BASE_URL is the fallback for single-enrollment
-s3_endpoint = os.environ.get('S3_ENDPOINT') or os.environ.get('SERVICE_BASE_URL', 'https://s3.svcmarket.com')
+s3_endpoint = os.environ.get('S3_ENDPOINT') or "{{ service_base_url }}"
 bucket = os.environ.get('BUCKET', 'test-relay')
 region = os.environ.get('REGION', 'us-east-1')
 access_key = os.environ.get('ACCESS_KEY', '')
@@ -37,7 +37,7 @@ except ClientError as e:
         raise
 {% else %}
 # Access via UnitySVC S3 gateway
-service_url = os.environ['SERVICE_BASE_URL']
+service_url = "{{ service_base_url }}"
 endpoint_url = service_url.rsplit('/', 1)[0]
 bucket = service_url.rsplit('/', 1)[1]
 region = 'us-east-1'

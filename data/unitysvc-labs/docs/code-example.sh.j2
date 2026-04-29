@@ -18,7 +18,7 @@ aws s3 ls s3://{{ interface.bucket }}/{{ interface.get("base_path", "") }} \
 {% endif %}
 {% else %}
 # Access via UnitySVC S3 gateway
-aws --endpoint-url $SERVICE_BASE_URL \
+aws --endpoint-url {{ service_base_url }} \
     s3 ls s3://{{ offering.name }}/ \
     --max-items 10
 {% endif %}
