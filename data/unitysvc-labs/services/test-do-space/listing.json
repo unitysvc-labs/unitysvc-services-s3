@@ -25,18 +25,7 @@
       "mime_type": "markdown"
     },
     "Python code example": {
-      "category": "code_example",
-      "description": "Example code to list and download ebooks",
-      "file_path": "../../docs/code-example.py.j2",
-      "is_active": true,
-      "is_public": true,
-      "meta": {
-        "requirements": [
-          "boto3"
-        ],
-        "output_contains": "connectivity ok"
-      },
-      "mime_type": "python"
+      "$doc_preset": "s3_code_example"
     },
     "CLI code example": {
       "category": "code_example",
@@ -57,15 +46,7 @@
       "mime_type": "url"
     },
     "Connectivity test": {
-      "category": "connectivity_test",
-      "description": "Connectivity test for the S3 gateway endpoint",
-      "file_path": "../../docs/connectivity.sh.j2",
-      "is_active": true,
-      "is_public": false,
-      "meta": {
-        "output_contains": "connectivity ok"
-      },
-      "mime_type": "bash"
+      "$doc_preset": "s3_connectivity"
     }
   }
 }
