@@ -3,15 +3,10 @@
   "display_name": "S3 Proxy (Multi-Enrollment)",
   "documents": {
     "Connectivity test": {
-      "category": "connectivity_test",
-      "description": "Verify S3 proxy endpoint is reachable",
-      "file_path": "../../docs/relay-connectivity.sh.j2",
-      "is_active": true,
-      "is_public": false,
-      "meta": {
-        "output_contains": "connectivity ok"
-      },
-      "mime_type": "bash"
+      "$doc_preset": {
+        "is_public": false,
+        "name": "api_connectivity"
+      }
     },
     "How to use this service": {
       "category": "getting_started",
