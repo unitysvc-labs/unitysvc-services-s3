@@ -1,33 +1,33 @@
 {
-  "name": "s3-relay",
-  "schema": "offering_v1",
-  "service_type": "content",
-  "status": "ready",
-  "time_created": "2026-04-13T00:00:00Z",
-  "description": "Bring Your Own Bucket S3 relay. Connect your own S3-compatible storage and serve objects through the UnitySVC gateway. The gateway returns presigned redirect URLs \u2014 clients download directly from your upstream bucket.",
-  "tags": [
-    "byoe",
-    "gateway",
-    "s3"
-  ],
   "capabilities": [
     "s3_relay"
   ],
+  "description": "Bring Your Own Bucket S3 relay. Connect your own S3-compatible storage and serve objects through the UnitySVC gateway. The gateway returns presigned redirect URLs \u2014 clients download directly from your upstream bucket.",
+  "name": "s3-relay",
   "payout_price": {
     "description": "No platform commission \u2014 customer uses own storage",
     "percentage": "100.00",
     "type": "revenue_share"
   },
+  "schema": "offering_v1",
+  "service_type": "content",
+  "status": "ready",
+  "tags": [
+    "byoe",
+    "gateway",
+    "s3"
+  ],
+  "time_created": "2026-04-13T00:00:00Z",
   "upstream_access_config": {
     "s3_relay": {
-      "access_method": "http",
-      "storage_type": "s3",
-      "proxy_mode": "redirect",
-      "s3_endpoint": "${ customer_secrets.S3_RELAY_ENDPOINT }",
-      "bucket": "${ customer_secrets.S3_RELAY_BUCKET }",
-      "region": "${ customer_secrets.S3_RELAY_REGION }",
       "access_key": "${ customer_secrets.S3_RELAY_ACCESS_KEY }",
-      "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }"
+      "access_method": "http",
+      "bucket": "${ customer_secrets.S3_RELAY_BUCKET }",
+      "proxy_mode": "redirect",
+      "region": "${ customer_secrets.S3_RELAY_REGION }",
+      "s3_endpoint": "${ customer_secrets.S3_RELAY_ENDPOINT }",
+      "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }",
+      "storage_type": "s3"
     }
   }
 }

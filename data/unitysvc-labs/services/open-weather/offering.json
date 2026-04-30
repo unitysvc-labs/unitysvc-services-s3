@@ -1,10 +1,18 @@
 {
+  "capabilities": [
+    "s3_browse",
+    "s3_download"
+  ],
+  "description": "NOAA Global Historical Climatology Network Daily (GHCN-D) dataset. Contains daily climate records from over 100,000 stations worldwide, including temperature, precipitation, snowfall, and wind observations dating back to the 1700s.",
   "name": "open-weather",
+  "payout_price": {
+    "description": "Free public dataset \u2014 no payout",
+    "percentage": "0",
+    "type": "revenue_share"
+  },
   "schema": "offering_v1",
   "service_type": "content",
   "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "description": "NOAA Global Historical Climatology Network Daily (GHCN-D) dataset. Contains daily climate records from over 100,000 stations worldwide, including temperature, precipitation, snowfall, and wind observations dating back to the 1700s.",
   "tags": [
     "data",
     "weather",
@@ -12,22 +20,14 @@
     "open-data",
     "free"
   ],
-  "capabilities": [
-    "s3_browse",
-    "s3_download"
-  ],
-  "payout_price": {
-    "description": "Free public dataset \u2014 no payout",
-    "percentage": "0",
-    "type": "revenue_share"
-  },
+  "time_created": "2026-03-26T00:00:00Z",
   "upstream_access_config": {
     "aws_public_s3": {
       "access_method": "http",
       "base_url": "https://noaa-ghcn-pds.s3.amazonaws.com",
-      "storage_type": "s3",
       "bucket": "noaa-ghcn-pds",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "storage_type": "s3"
     }
   }
 }

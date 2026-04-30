@@ -1,35 +1,35 @@
 {
+  "capabilities": [
+    "s3_browse",
+    "s3_download"
+  ],
+  "description": "A curated collection of approximately 1,000 public domain ebooks from Project Gutenberg, hosted on UnitySVC's own S3-compatible storage. Includes classic literature, philosophy, science, and reference works in plain text and other formats. Useful for NLP training, text analysis, and general reading.",
   "name": "test-do-space",
+  "payout_price": {
+    "description": "Free public domain content \u2014 no payout",
+    "percentage": "0",
+    "type": "revenue_share"
+  },
   "schema": "offering_v1",
   "service_type": "content",
   "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "description": "A curated collection of approximately 1,000 public domain ebooks from Project Gutenberg, hosted on UnitySVC's own S3-compatible storage. Includes classic literature, philosophy, science, and reference works in plain text and other formats. Useful for NLP training, text analysis, and general reading.",
   "tags": [
     "ebooks",
     "literature",
     "nlp",
     "public-domain"
   ],
-  "capabilities": [
-    "s3_browse",
-    "s3_download"
-  ],
-  "payout_price": {
-    "description": "Free public domain content \u2014 no payout",
-    "percentage": "0",
-    "type": "revenue_share"
-  },
+  "time_created": "2026-03-26T00:00:00Z",
   "upstream_access_config": {
     "digitalocean_spaces": {
+      "access_key": "${ secrets.DO_SPACES_ACCESS_KEY }",
       "access_method": "http",
-      "storage_type": "s3",
-      "s3_endpoint": "https://sfo3.digitaloceanspaces.com",
+      "base_path": "s3-gateway-test/",
       "bucket": "unitysvc-assets",
       "region": "sfo3",
-      "base_path": "s3-gateway-test/",
-      "access_key": "${ secrets.DO_SPACES_ACCESS_KEY }",
-      "secret_key": "${ secrets.DO_SPACES_SECRET_KEY }"
+      "s3_endpoint": "https://sfo3.digitaloceanspaces.com",
+      "secret_key": "${ secrets.DO_SPACES_SECRET_KEY }",
+      "storage_type": "s3"
     }
   }
 }

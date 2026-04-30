@@ -1,31 +1,13 @@
 {
-  "schema": "listing_v1",
-  "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "display_name": "NOAA Weather Data (GHCN-D)",
   "currency": "USD",
-  "list_price": {
-    "type": "constant",
-    "price": "0",
-    "description": "Free — public dataset"
-  },
-  "user_access_interfaces": {
-    "s3_gateway": {
-      "access_method": "http",
-      "base_url": "${S3_GATEWAY_BASE_URL}/open-weather"
-    }
-  },
+  "display_name": "NOAA Weather Data (GHCN-D)",
   "documents": {
-    "How to use this dataset": {
-      "category": "getting_started",
-      "description": "Guide to accessing NOAA weather data through the S3 gateway",
-      "file_path": "../../docs/description.md",
+    "AWS Open Data Registry": {
+      "category": "api_reference",
+      "external_url": "https://registry.opendata.aws/noaa-ghcn/",
       "is_active": true,
       "is_public": true,
-      "mime_type": "markdown"
-    },
-    "Python code example": {
-      "$doc_preset": "s3_code_example"
+      "mime_type": "url"
     },
     "CLI code example": {
       "category": "code_example",
@@ -38,15 +20,33 @@
       },
       "mime_type": "bash"
     },
-    "AWS Open Data Registry": {
-      "category": "api_reference",
-      "external_url": "https://registry.opendata.aws/noaa-ghcn/",
-      "is_active": true,
-      "is_public": true,
-      "mime_type": "url"
-    },
     "Connectivity test": {
       "$doc_preset": "s3_connectivity"
+    },
+    "How to use this dataset": {
+      "category": "getting_started",
+      "description": "Guide to accessing NOAA weather data through the S3 gateway",
+      "file_path": "../../docs/description.md",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "markdown"
+    },
+    "Python code example": {
+      "$doc_preset": "s3_code_example"
+    }
+  },
+  "list_price": {
+    "description": "Free \u2014 public dataset",
+    "price": "0",
+    "type": "constant"
+  },
+  "schema": "listing_v1",
+  "status": "ready",
+  "time_created": "2026-03-26T00:00:00Z",
+  "user_access_interfaces": {
+    "s3_gateway": {
+      "access_method": "http",
+      "base_url": "${S3_GATEWAY_BASE_URL}/open-weather"
     }
   }
 }
