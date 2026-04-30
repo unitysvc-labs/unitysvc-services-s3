@@ -42,11 +42,11 @@
       "code": "{{ enrollment_code(6) }}"
     },
     "ops_testing_parameters": {
-      "access_key_secret": "MINIO_TEST_ACCESS_KEY",
-      "bucket": "test-relay-multi",
+      "access_key_secret": "S3_ACCESS_KEY",
+      "bucket": "demo",
       "region": "us-east-1",
       "s3_endpoint": "https://s3.svcmarket.com",
-      "secret_key_secret": "MINIO_TEST_SECRET_KEY"
+      "secret_key_secret": "S3_SECRET_KEY"
     }
   },
   "status": "ready",
