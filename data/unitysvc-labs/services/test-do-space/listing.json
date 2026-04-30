@@ -1,32 +1,7 @@
 {
-  "schema": "listing_v1",
-  "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "display_name": "Gutenberg Ebooks (DO Spaces)",
   "currency": "USD",
-  "list_price": {
-    "type": "constant",
-    "price": "0.01",
-    "description": "1c per file"
-  },
-  "user_access_interfaces": {
-    "s3_gateway": {
-      "access_method": "http",
-      "base_url": "${S3_GATEWAY_BASE_URL}/test-do-space"
-    }
-  },
+  "display_name": "Gutenberg Ebooks (DO Spaces)",
   "documents": {
-    "How to use this dataset": {
-      "category": "getting_started",
-      "description": "Guide to browsing and downloading Project Gutenberg ebooks through the S3 gateway",
-      "file_path": "../../docs/description.md",
-      "is_active": true,
-      "is_public": true,
-      "mime_type": "markdown"
-    },
-    "Python code example": {
-      "$doc_preset": "s3_code_example"
-    },
     "CLI code example": {
       "category": "code_example",
       "description": "Example using AWS CLI to browse ebooks",
@@ -38,6 +13,17 @@
       },
       "mime_type": "bash"
     },
+    "Connectivity test": {
+      "$doc_preset": "s3_connectivity"
+    },
+    "How to use this dataset": {
+      "category": "getting_started",
+      "description": "Guide to browsing and downloading Project Gutenberg ebooks through the S3 gateway",
+      "file_path": "../../docs/description.md",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "markdown"
+    },
     "Project Gutenberg": {
       "category": "api_reference",
       "external_url": "https://www.gutenberg.org/",
@@ -45,8 +31,22 @@
       "is_public": true,
       "mime_type": "url"
     },
-    "Connectivity test": {
-      "$doc_preset": "s3_connectivity"
+    "Python code example": {
+      "$doc_preset": "s3_code_example"
+    }
+  },
+  "list_price": {
+    "description": "1c per file",
+    "price": "0.01",
+    "type": "constant"
+  },
+  "schema": "listing_v1",
+  "status": "ready",
+  "time_created": "2026-03-26T00:00:00Z",
+  "user_access_interfaces": {
+    "s3_gateway": {
+      "access_method": "http",
+      "base_url": "${S3_GATEWAY_BASE_URL}/test-do-space"
     }
   }
 }

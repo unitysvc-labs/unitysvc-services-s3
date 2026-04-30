@@ -1,10 +1,18 @@
 {
+  "capabilities": [
+    "s3_browse",
+    "s3_download"
+  ],
+  "description": "SpaceNet satellite imagery dataset with labeled building footprints, road networks, and other geospatial features. High-resolution optical imagery for machine learning training and geospatial analysis.",
   "name": "open-imagery",
+  "payout_price": {
+    "description": "Free public dataset \u2014 no payout",
+    "percentage": "0",
+    "type": "revenue_share"
+  },
   "schema": "offering_v1",
   "service_type": "content",
   "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "description": "SpaceNet satellite imagery dataset with labeled building footprints, road networks, and other geospatial features. High-resolution optical imagery for machine learning training and geospatial analysis.",
   "tags": [
     "data",
     "satellite",
@@ -14,22 +22,14 @@
     "open-data",
     "free"
   ],
-  "capabilities": [
-    "s3_browse",
-    "s3_download"
-  ],
-  "payout_price": {
-    "description": "Free public dataset \u2014 no payout",
-    "percentage": "0",
-    "type": "revenue_share"
-  },
+  "time_created": "2026-03-26T00:00:00Z",
   "upstream_access_config": {
     "aws_public_s3": {
       "access_method": "http",
       "base_url": "https://spacenet-dataset.s3.amazonaws.com",
-      "storage_type": "s3",
       "bucket": "spacenet-dataset",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "storage_type": "s3"
     }
   }
 }

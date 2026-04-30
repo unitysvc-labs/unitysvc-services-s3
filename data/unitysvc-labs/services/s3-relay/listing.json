@@ -39,10 +39,10 @@
   "schema": "listing_v1",
   "service_options": {
     "enrollment_vars": {
-      "S3_RELAY_ENDPOINT": "",
-      "S3_RELAY_BUCKET": "",
-      "S3_RELAY_REGION": "",
       "S3_RELAY_ACCESS_KEY": "",
+      "S3_RELAY_BUCKET": "",
+      "S3_RELAY_ENDPOINT": "",
+      "S3_RELAY_REGION": "",
       "S3_RELAY_SECRET_KEY": ""
     }
   },

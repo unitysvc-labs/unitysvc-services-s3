@@ -1,10 +1,18 @@
 {
+  "capabilities": [
+    "s3_browse",
+    "s3_download"
+  ],
+  "description": "NOAA GOES-16 satellite weather imagery. Real-time and archival geostationary weather satellite data including visible, infrared, and water vapor imagery covering the Western Hemisphere. Used for weather forecasting, climate research, and atmospheric science.",
   "name": "open-satellite",
+  "payout_price": {
+    "description": "Free public dataset \u2014 no payout",
+    "percentage": "0",
+    "type": "revenue_share"
+  },
   "schema": "offering_v1",
   "service_type": "content",
   "status": "ready",
-  "time_created": "2026-03-26T00:00:00Z",
-  "description": "NOAA GOES-16 satellite weather imagery. Real-time and archival geostationary weather satellite data including visible, infrared, and water vapor imagery covering the Western Hemisphere. Used for weather forecasting, climate research, and atmospheric science.",
   "tags": [
     "data",
     "satellite",
@@ -13,22 +21,14 @@
     "open-data",
     "free"
   ],
-  "capabilities": [
-    "s3_browse",
-    "s3_download"
-  ],
-  "payout_price": {
-    "description": "Free public dataset \u2014 no payout",
-    "percentage": "0",
-    "type": "revenue_share"
-  },
+  "time_created": "2026-03-26T00:00:00Z",
   "upstream_access_config": {
     "aws_public_s3": {
       "access_method": "http",
       "base_url": "https://noaa-goes16.s3.amazonaws.com",
-      "storage_type": "s3",
       "bucket": "noaa-goes16",
-      "region": "us-east-1"
+      "region": "us-east-1",
+      "storage_type": "s3"
     }
   }
 }
