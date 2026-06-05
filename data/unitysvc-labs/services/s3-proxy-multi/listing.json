@@ -38,8 +38,8 @@
   },
   "schema": "listing_v1",
   "service_options": {
-    "enrollment_vars": {
-      "code": "{{ enrollment_code(6) }}"
+    "enrollment": {
+      "scope": "global"
     },
     "ops_testing_parameters": {
       "access_key_secret": "S3_RELAY_ACCESS_KEY",
@@ -54,7 +54,7 @@
   "user_access_interfaces": {
     "s3_gateway": {
       "access_method": "http",
-      "base_url": "${S3_GATEWAY_BASE_URL}/{{ enrollment_vars.code }}"
+      "base_url": "${S3_GATEWAY_BASE_URL}/{{ enrollment.code }}"
     }
   },
   "user_parameters_schema": {
