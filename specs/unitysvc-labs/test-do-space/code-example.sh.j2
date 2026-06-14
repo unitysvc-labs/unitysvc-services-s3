@@ -1,0 +1,25 @@
+#!/bin/bash
+# List files in the dataset
+{% if local_testing %}
+{% if interface.get("access_key") %}
+# Local testing: access S3 with seller credentials
+export AWS_ACCESS_KEY_ID="$ACCESS_KEY"
+export AWS_SECRET_ACCESS_KEY="$SECRET_KEY"
+aws --endpoint-url {{ interface.s3_endpoint }} \
+    s3 ls s3://{{ interface.bucket }}/{{ interface.get("base_path", "") }} \
+    --region {{ interface.region }} \
+    --max-items 10
+{% else %}
+# Local testing: access public S3 bucket directly
+aws s3 ls s3://{{ interface.bucket }}/{{ interface.get("base_path", "") }} \
+    --no-sign-request \
+    --region {{ interface.region }} \
+    --max-items 10
+{% endif %}
+{% else %}
+# Access via UnitySVC S3 gateway
+aws --endpoint-url {{ service_base_url }} \
+    s3 ls s3://{{ offering.name }}/ \
+    --max-items 10
+{% endif %}
+echo "connectivity ok"
