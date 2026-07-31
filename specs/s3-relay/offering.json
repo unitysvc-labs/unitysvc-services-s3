@@ -1,0 +1,43 @@
+{
+  "capabilities": [
+    "s3_relay"
+  ],
+  "description": "Bring Your Own Bucket S3 relay. Connect your own S3-compatible storage (AWS S3, DigitalOcean Spaces, MinIO, Backblaze B2, Wasabi, \u2026) and serve objects through the UnitySVC gateway, which returns presigned redirect URLs \u2014 clients download directly from your upstream bucket. This is a multi-channel service: the free `byok` channel relays one bucket you store once as customer secrets (`S3_RELAY_*`), while the metered `plus` channel lets you run many buckets under a single account \u2014 each enrollment binds its own bucket/endpoint/credentials and is reached at a unique `/e/<code>` address. See \u201cHow to use this service\u201d for both channels.",
+  "name": "s3-relay",
+  "payout_price": {
+    "description": "No platform commission \u2014 customer uses own storage",
+    "percentage": "100.00",
+    "type": "revenue_share"
+  },
+  "service_type": "content",
+  "status": "ready",
+  "tags": [
+    "byoe",
+    "enrollment",
+    "gateway",
+    "s3"
+  ],
+  "time_created": "2026-04-13T00:00:00Z",
+  "upstream_access_config": {
+    "byok": {
+      "access_key": "${ customer_secrets.S3_RELAY_ACCESS_KEY }",
+      "access_method": "http",
+      "bucket": "${ customer_secrets.S3_RELAY_BUCKET }",
+      "proxy_mode": "redirect",
+      "region": "${ customer_secrets.S3_RELAY_REGION }",
+      "s3_endpoint": "${ customer_secrets.S3_RELAY_ENDPOINT }",
+      "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }",
+      "storage_type": "s3"
+    },
+    "plus": {
+      "access_key": "${ customer_secrets.{{ params.access_key_secret }} }",
+      "access_method": "http",
+      "bucket": "{{ params.bucket }}",
+      "proxy_mode": "redirect",
+      "region": "{{ params.region }}",
+      "s3_endpoint": "{{ params.s3_endpoint }}",
+      "secret_key": "${ customer_secrets.{{ params.secret_key_secret }} }",
+      "storage_type": "s3"
+    }
+  }
+}

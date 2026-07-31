@@ -1,52 +1,32 @@
-# UnitySVC Services - Public S3 Datasets
+# UnitySVC Services - S3
 
-This repository hosts service data for free public S3 datasets on the UnitySVC platform, provided by **UnitySVC Labs**.
+This repository hosts S3 service data for the UnitySVC platform, provided by **UnitySVC Labs**.
 
 ## Overview
 
-These services proxy publicly available S3 datasets (AWS Open Data Registry, Common Crawl, etc.) through the UnitySVC S3 storage gateway (`s3.unitysvc.com`). They serve triple duty:
-
-- **Testing** the S3 gateway end-to-end with real data
-- **Demonstrating** the platform to prospective customers and sellers
-- **Providing real value** — curated access to popular datasets via a single API key
-
-No files are self-hosted. The gateway proxies to existing public S3 buckets.
+These services let customers serve objects from their **own** S3-compatible storage
+(AWS S3, DigitalOcean Spaces, MinIO, Backblaze B2, Wasabi, or any S3-compatible endpoint)
+through the UnitySVC S3 gateway (`s3.unitysvc.com`). Customers bring the bucket and
+credentials; the gateway handles auth, routing, and metering. No files are self-hosted.
 
 ## Services
 
-| Service | Upstream Bucket | Description |
-|---|---|---|
-| `open-weather` | `s3://noaa-ghcn-pds/` | NOAA daily climate records from 100K+ stations worldwide |
-| `open-imagery` | `s3://spacenet-dataset/` | SpaceNet satellite imagery with labeled features |
-| `open-crawl` | `s3://commoncrawl/` | Common Crawl web archive (petabytes of web data) |
+Each service is **multi-channel**: a free `byok` channel (one bucket configured once via
+`S3_RELAY_*` customer secrets) and a metered `plus` channel (per-enrollment buckets,
+reached at `/e/<code>`).
 
-All services are free (price: $0).
+| Service | Delivery mode | `byok` (free) | `plus` (metered) |
+|---|---|---|---|
+| `s3-relay` | `redirect` — gateway returns presigned redirect URLs; clients download directly from your bucket | $0 | $0.001 / request |
+| `s3-proxy` | `proxy` — gateway streams all bytes; upstream endpoint stays hidden from clients | $0 | $0.01 / GB transferred |
 
-## Repository Structure
-
-```
-data/
-└── unitysvc-labs/
-    ├── provider.toml          # UnitySVC Labs provider metadata
-    ├── docs/                  # Shared documentation and code examples
-    │   ├── description.md
-    │   ├── code-example.py.j2
-    │   └── code-example.sh.j2
-    └── services/
-        ├── open-weather/      # NOAA weather data
-        │   ├── offering.json
-        │   └── listing.json
-        ├── open-imagery/      # SpaceNet satellite imagery
-        │   ├── offering.json
-        │   └── listing.json
-        └── open-crawl/        # Common Crawl web archive
-            ├── offering.json
-            └── listing.json
-```
+The `byok` proxy channel reads the same `S3_RELAY_*` secrets as `s3-relay`, so a single
+bucket configuration works in either redirect or proxy mode.
 
 ## Usage
 
-After enrolling in a service, use any S3-compatible client:
+After configuring your bucket (or enrolling), use any S3-compatible client against the
+gateway, authenticating with your svcpass API key:
 
 ```python
 import boto3
@@ -57,14 +37,21 @@ s3 = boto3.client('s3',
     aws_secret_access_key='not-used',
 )
 
-# Browse NOAA weather data
-response = s3.list_objects_v2(Bucket='open-weather', MaxKeys=10)
+response = s3.list_objects_v2(Bucket='s3-relay', MaxKeys=10)
 for obj in response.get('Contents', []):
     print(f"{obj['Key']}  ({obj['Size']} bytes)")
+```
+
+See each service's "How to use this service" document for the full `byok` / `plus` setup.
+
+## Setup
+
+```bash
+pip install unitysvc-services
+usvc data validate
 ```
 
 ## Related
 
 - [#531](https://github.com/unitysvc/unitysvc/issues/531) — S3-compatible storage gateway
-- [#576](https://github.com/unitysvc/unitysvc/issues/576) — Free S3 gateway demo services
 - [unitysvc-services](https://github.com/unitysvc/unitysvc-services) — Seller SDK

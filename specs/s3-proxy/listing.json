@@ -1,6 +1,6 @@
 {
   "currency": "USD",
-  "display_name": "S3 Relay (Multi-Enrollment)",
+  "display_name": "S3 Proxy (Bring Your Own Bucket)",
   "documents": {
     "Connectivity test": {
       "$doc_preset": {
@@ -10,15 +10,15 @@
     },
     "How to use this service": {
       "category": "getting_started",
-      "description": "Guide to setting up multiple S3 relay enrollments",
-      "file_path": "relay-multi-description.md",
+      "description": "How S3 Proxy works and the two ways to use it \u2014 one stored bucket (free) or per-enrollment buckets (metered)",
+      "file_path": "proxy-byoe-description.md",
       "is_active": true,
       "is_public": true,
       "mime_type": "markdown"
     },
     "Python code example": {
       "category": "code_example",
-      "description": "Example code to list and download objects via S3 relay",
+      "description": "Example code to list and download objects via S3 proxy",
       "file_path": "relay-code-example.py.j2",
       "is_active": true,
       "is_public": true,
@@ -32,15 +32,23 @@
     }
   },
   "list_price": {
-    "description": "$0.001 per request relayed",
-    "price": "0.001",
-    "type": "constant"
-  },
-  "name": "unitysvc-labs/s3-relay-multi",
-  "service_options": {
-    "enrollment": {
-      "scope": "global"
+    "channels": {
+      "byok": {
+        "description": "Free \u2014 customer provides own storage",
+        "price": "0",
+        "type": "constant"
+      },
+      "plus": {
+        "description": "$0.01 per GB transferred",
+        "price": "0.01",
+        "type": "constant"
+      }
     },
+    "default": "byok",
+    "type": "channel"
+  },
+  "name": "s3-proxy",
+  "service_options": {
     "ops_testing_parameters": {
       "access_key_secret": "S3_RELAY_ACCESS_KEY",
       "bucket": "demo",
@@ -52,9 +60,13 @@
   "status": "ready",
   "time_created": "2026-04-13T00:00:00Z",
   "user_access_interfaces": {
-    "s3_gateway": {
+    "enrollment": {
       "access_method": "http",
       "base_url": "${S3_GATEWAY_BASE_URL}/{{ enrollment.code }}"
+    },
+    "s3_gateway": {
+      "access_method": "http",
+      "base_url": "${S3_GATEWAY_BASE_URL}/s3-proxy"
     }
   },
   "user_parameters_schema": {
