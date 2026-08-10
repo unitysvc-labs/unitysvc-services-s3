@@ -53,7 +53,7 @@
       "access_key_secret": "S3_RELAY_ACCESS_KEY",
       "bucket": "demo",
       "region": "us-east-1",
-      "s3_endpoint": "https://s3.svcmarket.com",
+      "s3_endpoint": "https://s3.unitysvc.dev",
       "secret_key_secret": "S3_RELAY_SECRET_KEY"
     }
   },
