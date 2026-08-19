@@ -3,5 +3,6 @@
   "name": "s3-proxy",
   "service_id": "c5dee5cf-c408-422b-9968-91b10a3c9396",
   "status": "created",
-  "time_created": "2026-08-18T13:16:26.800366Z"
+  "time_created": "2026-08-18T13:16:26.800366Z",
+  "upstream_test_status": "pass"
 }

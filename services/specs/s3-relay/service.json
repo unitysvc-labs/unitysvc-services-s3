@@ -3,5 +3,6 @@
   "name": "s3-relay",
   "service_id": "1ecf5ae7-6a61-4f93-aa70-a61babc0e779",
   "status": "created",
-  "time_created": "2026-08-18T13:16:33.817154Z"
+  "time_created": "2026-08-18T13:16:33.817154Z",
+  "upstream_test_status": "pass"
 }
