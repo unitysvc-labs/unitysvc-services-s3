@@ -10,7 +10,7 @@
     },
     "How to use this service": {
       "category": "getting_started",
-      "description": "How S3 Proxy works and the two ways to use it \u2014 one stored bucket (free) or per-enrollment buckets (metered)",
+      "description": "How S3 Proxy works and the two ways to use it — one stored bucket (free) or per-enrollment buckets (metered)",
       "file_path": "proxy-byoe-description.md",
       "is_active": true,
       "is_public": true,
@@ -34,7 +34,7 @@
   "list_price": {
     "channels": {
       "byok": {
-        "description": "Free \u2014 customer provides own storage",
+        "description": "Free — customer provides own storage",
         "price": "0",
         "type": "constant"
       },

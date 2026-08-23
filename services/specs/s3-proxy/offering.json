@@ -2,11 +2,11 @@
   "capabilities": [
     "s3-read-proxied"
   ],
-  "description": "Bring your own bucket from any S3-compatible provider (AWS S3, DigitalOcean Spaces, MinIO, Backblaze B2, Wasabi, and more). The gateway authenticates each call with your svcpass key, resolves which upstream bucket to reach, fetches the object, and proxies every byte back through the gateway \u2014 clients never see the upstream URL, and delivery can be metered per GB.\n\nTwo channels are available. The free `byok` channel proxies one bucket you store once as customer secrets (`S3_RELAY_*`, shared with S3 Relay \u2014 configure once, use in redirect or proxy mode), reached at the canonical `\u2026/s3-proxy` gateway address. The metered `plus` channel ($0.01/GB transferred) lets you run many buckets under one account \u2014 each enrollment binds its own bucket/endpoint/credentials and is reached at a unique `/e/<code>` address. See \u201cHow to use this service\u201d for full setup of both channels.",
+  "description": "Bring your own bucket from any S3-compatible provider (AWS S3, DigitalOcean Spaces, MinIO, Backblaze B2, Wasabi, and more). The gateway authenticates each call with your svcpass key, resolves which upstream bucket to reach, fetches the object, and proxies every byte back through the gateway — clients never see the upstream URL, and delivery can be metered per GB.\n\nTwo channels are available. The free `byok` channel proxies one bucket you store once as customer secrets (`S3_RELAY_*`, shared with S3 Relay — configure once, use in redirect or proxy mode), reached at the canonical `…/s3-proxy` gateway address. The metered `plus` channel ($0.01/GB transferred) lets you run many buckets under one account — each enrollment binds its own bucket/endpoint/credentials and is reached at a unique `/e/<code>` address. See “How to use this service” for full setup of both channels.",
   "logo": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/aws-s3.svg",
   "name": "s3-proxy",
   "payout_price": {
-    "description": "No platform commission \u2014 customer uses own storage",
+    "description": "No platform commission — customer uses own storage",
     "percentage": "100.00",
     "type": "revenue_share"
   },
