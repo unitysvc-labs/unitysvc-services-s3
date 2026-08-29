@@ -13,12 +13,6 @@
   "service_type": "proxy",
   "status": "ready",
   "summary": "Serve objects from your own S3-compatible storage through the UnitySVC gateway, which returns presigned redirect URLs so clients download directly from your bucket.",
-  "tags": [
-    "byoe",
-    "enrollment",
-    "gateway",
-    "s3"
-  ],
   "time_created": "2026-04-13T00:00:00Z",
   "upstream_access_config": {
     "byok": {
