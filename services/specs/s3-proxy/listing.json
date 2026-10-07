@@ -23,7 +23,6 @@
       "is_active": true,
       "is_public": true,
       "meta": {
-        "output_contains": "connectivity ok",
         "requirements": [
           "boto3"
         ]
@@ -45,6 +44,7 @@
       }
     },
     "default": "byok",
+    "description": "Free to $0.01 per GB transferred",
     "type": "channel"
   },
   "name": "s3-proxy",
