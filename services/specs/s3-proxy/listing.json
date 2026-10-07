@@ -44,6 +44,7 @@
       }
     },
     "default": "byok",
+    "description": "Free to $0.01 per GB transferred",
     "type": "channel"
   },
   "name": "s3-proxy",
