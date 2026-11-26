@@ -40,8 +40,8 @@ For each enrollment, provide:
 | `s3_endpoint` | S3-compatible endpoint URL (e.g. `https://s3.amazonaws.com`) |
 | `bucket` | Bucket name |
 | `region` | Region (e.g. `us-east-1`) |
-| `access_key_secret` | **Name** of the customer secret holding your S3 access key ID |
-| `secret_key_secret` | **Name** of the customer secret holding your S3 secret access key |
+| `access_key` | Your S3 access key ID. Paste it or pick one of your secrets; it is kept as a secret |
+| `secret_key` | Your S3 secret access key. Paste it or pick one of your secrets; it is kept as a secret |
 
 Each enrollment returns a 6-character code; send requests to that enrollment's unique `/e/<code>` gateway address.
 
