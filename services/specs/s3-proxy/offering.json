@@ -17,17 +17,16 @@
   "upstream_access_config": {
     "byok": {
       "access_key": "${ customer_secrets.S3_RELAY_ACCESS_KEY }",
-      "access_method": "http",
+      "access_method": "s3",
       "bucket": "${ customer_secrets.S3_RELAY_BUCKET }",
       "proxy_mode": "proxy",
       "region": "${ customer_secrets.S3_RELAY_REGION }",
       "s3_endpoint": "${ customer_secrets.S3_RELAY_ENDPOINT }",
-      "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }",
-      "storage_type": "s3"
+      "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }"
     },
     "plus": {
       "access_key": "{{ params.access_key }}",
-      "access_method": "http",
+      "access_method": "s3",
       "bucket": "{{ params.bucket }}",
       "params": {
         "schema": {
@@ -77,8 +76,7 @@
       "proxy_mode": "proxy",
       "region": "{{ params.region }}",
       "s3_endpoint": "{{ params.s3_endpoint }}",
-      "secret_key": "{{ params.secret_key }}",
-      "storage_type": "s3"
+      "secret_key": "{{ params.secret_key }}"
     }
   }
 }
