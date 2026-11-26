@@ -67,11 +67,11 @@
           "type": "object"
         },
         "testing_defaults": {
-          "access_key": "${ secrets.S3_RELAY_ACCESS_KEY }",
+          "access_key": "${ customer_secrets.S3_RELAY_ACCESS_KEY }",
           "bucket": "demo",
           "region": "us-east-1",
           "s3_endpoint": "https://s3.unitysvc.dev",
-          "secret_key": "${ secrets.S3_RELAY_SECRET_KEY }"
+          "secret_key": "${ customer_secrets.S3_RELAY_SECRET_KEY }"
         }
       },
       "proxy_mode": "redirect",
